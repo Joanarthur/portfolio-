@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joan Kahua | Bioengineering Portfolio</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary:  #d2b48c;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+        
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Section */
+        #about {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skills h3 {
+            margin-bottom: 15px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Education Section */
+        #education {
+            background: var(--light);
+        }
+        
+        .education-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .education-item h3 {
+            margin-bottom: 10px;
+        }
+        
+        .education-item .date {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .download-cv {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Interests Section */
+        #interests {
+            background: white;
+        }
+        
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .interest-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interest-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Projects Section */
+        #projects {
+            background: var(--light);
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .project-tag {
+            background: var(--light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Joan Kahua</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#interests">Interests</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h1>Joan Muthoni Kahua</h1>
+            <p>Bioengineering Student | Healthcare Innovator | Tech Enthusiast</p>
+            <p>Using biology and technology to address challenging problems in healthcare</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate bioengineering student with a strong interest in tech-driven solutions for healthcare and sustainability. I'm driven by curiosity and the desire to build tools that make life easier, healthier, and smarter.</p>
+                    <p>Dedicated to using biology and technology to address challenging problems in healthcare. I am eager to use my strong background in molecular biology and biochemical research to tackle practical problems. I'm especially interested in developments that advance biomedical science and enhance patient care.</p>
+                    
+                    <div class="skills">
+                        <h3>Key Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill">Effective communication</span>
+                            <span class="skill">Attention to detail</span>
+                            <span class="skill">Research</span>
+                            <span class="skill">Hands-on lab experience</span>
+                            <span class="skill">Data analysis</span>
+                            <span class="skill">Python</span>
+                            <span class="skill">HTML/CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">MATLAB</span>
+                            <span class="skill">C++</span>
+                            <span class="skill">C#</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="JMK.jpg" alt="Joan Kahua">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education & Experience</h2>
+            
+            <div class="education-item">
+                <h3>Bachelor of Science in Applied Bioengineering</h3>
+                <p class="date">September 2022 - Present</p>
+                <p>Jomo Kenyatta University of Agriculture and Technology</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Data Science in Python</h3>
+                <p class="date">May 2023 - July 2023</p>
+                <p>JKUAT ENTERPRISES</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Programming Essentials in Python</h3>
+                <p class="date">May 2023 - July 2023</p>
+                <p>Python Institute</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>IT Essentials</h3>
+                <p class="date">December 2022 - February 2023</p>
+                <p>Cisco Networking Academy</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Quality Control Assistant</h3>
+                <p class="date">May - July 2025</p>
+                <p>ORBIT CHEMICALS LTD - Assisted in the quality control and production department, gaining hands-on experience in industrial chemical processes and laboratory analysis.</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>United Nations Volunteers Program</h3>
+                <p class="date">June 2024</p>
+                <p>Voluntarily attended to assignments related to climate change, environmental protection and sustainable development which include ecosystem restoration, environmental rights and water ecosystems.</p>
+            </div>
+            
+            <div class="download-cv">
+                <a href="cv.pdf" download class="btn">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests">
+        <div class="container">
+            <h2>My Interests</h2>
+            <div class="interests-container">
+                <div class="interest-card">
+                    <i class="fas fa-dna"></i>
+                    <h3>Molecular Biology</h3>
+                    <p>Exploring the fundamental building blocks of life to develop innovative healthcare solutions and understand disease mechanisms.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Biomedical Technology</h3>
+                    <p>Combining technology with medicine to create advanced diagnostic tools, prosthetics, and medical devices that improve patient outcomes.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainable Healthcare</h3>
+                    <p>Developing eco-friendly medical solutions and practices that reduce environmental impact while maintaining high-quality patient care.</p>
+                </div>
+                
+                <div class="interest-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Science in Healthcare</h3>
+                    <p>Applying data analysis and machine learning to medical data to uncover patterns, predict outcomes, and personalize treatments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI-powered Diagnostic Tool">
+                    </div>
+                    <div class="project-info">
+                        <h3>AI-powered Diagnostic Tool</h3>
+                        <p>Developed a machine learning model that analyzes medical imaging to detect early signs of specific diseases with 92% accuracy.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Medical Imaging</span>
+                        </div>
+                        <a href="https://github.com/Joanarthur/hackathon.git" target="_blank" class="btn" style="margin-top: 10px; display: inline-block;">View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Portable Lab-on-a-Chip">
+                    </div>
+                    <div class="project-info">
+                        <h3>Portable Lab-on-a-Chip </h3>
+                        <p>Designed a microfluidic device that performs rapid blood tests in resource-limited settings, reducing diagnosis time from days to minutes.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Microfluidics</span>
+                            <span class="project-tag">Biomedical Engineering</span>
+                            <span class="project-tag">Rapid Diagnostics</span>
+                        </div>
+                        <a href="https://github.com/Joanarthur/hackathon.git" target="_blank" class="btn" style="margin-top: 10px; display: inline-block;">View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="pexels-mart-production-8436924.jpg" alt="Smart Prosthetic Limb">
+                    </div>
+                    <div class="project-info">
+                        <h3>Smart Prosthetic Limb</h3>
+                        <p>Prototyped a prosthetic arm with neural interface technology that learns and adapts to user movement patterns for more natural control.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Biomechanics</span>
+                            <span class="project-tag">Neural Interfaces</span>
+                            <span class="project-tag">Prosthetics</span>
+                        </div>
+                        <a href="https://github.com/Joanarthur/hackathon.git" target="_blank" class="btn" style="margin-top: 10px; display: inline-block;">View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CRISPR-based Diagnostic">
+                    </div>
+                    <div class="project-info">
+                        <h3>CRISPR-based Diagnostic</h3>
+                        <p>Researched and developed a CRISPR-Cas system for rapid, low-cost detection of specific genetic markers associated with hereditary diseases.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">CRISPR</span>
+                            <span class="project-tag">Molecular Diagnostics</span>
+                            <span class="project-tag">Genetic Engineering</span>
+                        </div>
+                        <a href="https://github.com/Joanarthur/hackathon.git" target="_blank" class="btn" style="margin-top: 10px; display: inline-block;">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0740429087</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Kahuaj2@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jomo Kenyatta University of Agriculture and Technology</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/joan-kahwa-30b749261" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    
+                    <h3>References</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <strong>Prof Robert Kinyua</strong><br>
+                            The Deputy vice-chancellor, Dean of students<br>
+                            Jomo Kenyatta University of Agriculture and Technology<br>
+                            robert.kinyua@jkuat.ac.ke<br>
+                            0723015697
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <strong>Dr. Patrick Juma</strong><br>
+                            Lecturer, college of Agriculture, Department of Horticulture<br>
+                            Jomo Kenyatta University of Agriculture and Technology<br>
+                            patricjuma@gmail.com<br>
+                            0790364544
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Joan Muthoni Kahua. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/joan-kahwa-30b749261" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Kahuaj2@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>Designed with passion for bioengineering and technology</p>
+        </div>
+    </footer>
+</body>
+</html>
